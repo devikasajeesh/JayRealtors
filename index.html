@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jay Realtors - Premium Dubai Real Estate Services"
+    />
+    <meta name="author" content="Jay Realtors" />
+    <link rel="icon" type="image/x-icon" href="images/logobkd.jpg" />
+    <title>Jay Realtors | Luxury Dubai Properties</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* Color Palette */
+        --primary-gold: #b8a05a;
+        --primary-dark: #8a7239;
+        --dark: #1a1a1a;
+        --light: #f8f8f8;
+        --text: #333;
+        --section-bg: rgba(184, 160, 90, 0.15);
+        --footer-bg: #1a1a1a;
+        --overlay: rgba(0, 0, 0, 0.6);
+
+        /* Design Tokens */
+        --shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        --radius: 16px;
+        --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        --border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Outfit", sans-serif;
+        color: var(--text);
+        background-color: var(--light);
+        overflow-x: hidden;
+        line-height: 1.8;
+        font-size: 1rem;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        margin: 0 0 1.5rem;
+        line-height: 1.3;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      a {
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+      /* Section Spacing */
+      section {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      .section-title:after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 3px;
+        bottom: 0;
+        left: 0;
+        background: var(--primary-gold);
+      }
+
+      .section-title.text-center:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: #666;
+        margin-bottom: 3rem;
+      }
+
+      /* Buttons */
+      .btn {
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 1rem;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border: none;
+        display: inline-block;
+        text-align: center;
+      }
+
+      .btn-primary {
+        background-color: var(--primary-gold);
+        color: var(--dark);
+        box-shadow: 0 4px 15px rgba(184, 160, 90, 0.3);
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(184, 160, 90, 0.4);
+        color: #fff;
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--light);
+        border: 2px solid var(--light);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--light);
+        color: var(--dark);
+        transform: translateY(-3px);
+      }
+
+      /* Navbar */
+      .navbar {
+        background: var(--light);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        padding: 1rem 0;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .navbar.scrolled {
+        background: rgba(248, 248, 248, 0.95);
+        backdrop-filter: blur(10px);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-gold);
+        font-size: 2rem;
+        letter-spacing: 1px;
+        transition: var(--transition);
+      }
+
+      .nav-link {
+        color: var(--dark);
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 1.5rem;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background: var(--primary-gold);
+        transition: var(--transition);
+        transform: translateX(-50%);
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-gold);
+      }
+
+      .nav-link:hover:after,
+      .nav-link.active:after {
+        width: 60%;
+      }
+
+      /* Custom hamburger menu styling */
+      .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+        font-size: 1.25rem;
+        background: transparent;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        position: relative;
+        height: 100vh;
+        min-height: 700px;
+        overflow: hidden;
+        margin-top: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+        z-index: 1;
+      }
+
+      #heroVideo {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        color: var(--light);
+        text-align: center;
+        padding: 0 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero-content h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 1px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s forwards;
+        opacity: 0;
+      }
+
+      .hero-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        animation: fadeInUp 1s ease-out 0.4s forwards;
+        opacity: 0;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Intro Section */
+      .intro-section {
+        background-color: var(--primary-gold);
+        padding: 5rem 0;
+        color: var(--light);
+        text-align: center;
+      }
+
+      .intro-section .section-title {
+        color: var(--light);
+      }
+
+      .intro-section .section-title:after {
+        background: var(--light);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* About Section */
+      .about-section {
+        background-color: var(--light);
+      }
+
+      .about-image {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .about-image img {
+        width: 100%;
+        height: auto;
+        transition: var(--transition);
+      }
+
+      .about-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .values-container {
+        margin-top: 2rem;
+      }
+
+      .value-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+
+      .value-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(184, 160, 90, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .value-icon i {
+        font-size: 1.5rem;
+        color: var(--primary-gold);
+      }
+
+      .value-content h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+      }
+
+      .value-content p {
+        margin: 0;
+        color: #666;
+      }
+
+      /* Services Section */
+      .services-section {
+        background-color: #f9f9f9;
+      }
+
+      .service-card {
+        background: #fff;
+        padding: 2.5rem 2rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: var(--transition);
+        height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .service-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(184, 160, 90, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+
+      .service-icon i {
+        font-size: 2rem;
+        color: var(--primary-gold);
+      }
+
+      .service-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .service-card p {
+        color: #666;
+        margin-bottom: 0;
+      }
+
+      /* Properties Section */
+      .properties-section {
+        background-color: var(--light);
+      }
+
+      .property-card {
+        background: #fff;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        margin-bottom: 2rem;
+        height: 100%;
+      }
+
+      .property-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .property-image {
+        position: relative;
+        overflow: hidden;
+        height: 250px;
+      }
+
+      .property-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .property-card:hover .property-image img {
+        transform: scale(1.05);
+      }
+
+      .property-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--primary-gold);
+        color: var(--dark);
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.8rem;
+      }
+
+      .property-content {
+        padding: 1.5rem;
+      }
+
+      .property-content h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .property-location {
+        color: #666;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .property-location i {
+        margin-right: 8px;
+        color: var(--primary-gold);
+      }
+
+      .property-features {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .property-features span {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        color: #666;
+      }
+
+      .property-features i {
+        margin-right: 5px;
+        color: var(--primary-gold);
+      }
+
+      .property-price h4 {
+        color: var(--primary-gold);
+        margin: 0;
+        font-size: 1.5rem;
+      }
+
+      /* Investment Section */
+      .investment-section {
+        background-color: #f9f9f9;
+      }
+
+      .investment-point {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+
+      .point-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .point-icon i {
+        font-size: 1.5rem;
+        color: #fff;
+      }
+
+      .point-content h4 {
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+      }
+
+      .point-content p {
+        margin: 0;
+        color: #666;
+      }
+
+      .investment-image {
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .investment-image img {
+        width: 100%;
+        height: auto;
+      }
+
+      /* Testimonials/Commitment Section */
+      .testimonials-section {
+        background-color: var(--light);
+      }
+
+      .commitment-card {
+        background: #fff;
+        padding: 2.5rem 2rem;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: var(--transition);
+        height: 100%;
+      }
+
+      .commitment-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .commitment-icon {
+        width: 80px;
+        height: 80px;
+        background: rgba(184, 160, 90, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+      }
+
+      .commitment-icon i {
+        font-size: 2rem;
+        color: var(--primary-gold);
+      }
+
+      .commitment-card h3 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .commitment-card p {
+        color: #666;
+        margin-bottom: 0;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("images/contact-bg.jpg") center/cover no-repeat;
+        color: var(--light);
+      }
+
+      .contact-section .section-title,
+      .contact-section .section-subtitle {
+        color: var(--light);
+      }
+
+      .contact-section .section-title:after {
+        background: var(--primary-gold);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .contact-form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 3rem;
+        border-radius: var(--radius);
+        backdrop-filter: blur(10px);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--light);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 15px 20px;
+        border: none;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--light);
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 0 2px var(--primary-gold);
+      }
+
+      .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      textarea.form-control {
+        border-radius: 12px;
+        resize: none;
+      }
+
+      select.form-control {
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23b8a05a' viewBox='0 0 16 16'%3E%3Cpath d='M8 12L2 6h12L8 12z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 20px center;
+        background-size: 16px;
+      }
+
+      .error {
+        color: #ff6b6b;
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        display: block;
+      }
+
+      .form-buttons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      .loading-message {
+        display: none;
+        color: var(--primary-gold);
+        font-weight: bold;
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 1.1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--footer-bg);
+        color: var(--light);
+        padding: 5rem 0 0;
+      }
+
+      .footer-info h3 {
+        color: var(--primary-gold);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer-info p {
+        margin-bottom: 2rem;
+        opacity: 0.8;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--light);
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background: var(--primary-gold);
+        color: var(--dark);
+        transform: translateY(-3px);
+      }
+
+      .footer-contact h4,
+      .footer-links h4 {
+        color: var(--primary-gold);
+        margin-bottom: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      .footer-contact p {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+      }
+
+      .footer-contact i {
+        margin-right: 10px;
+        color: var(--primary-gold);
+        width: 20px;
+      }
+
+      .footer-links ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: var(--light);
+        opacity: 0.8;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-gold);
+        opacity: 1;
+        padding-left: 5px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+        opacity: 0.6;
+      }
+
+      .footer-bottom-links {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+      }
+
+      .footer-bottom-links a {
+        color: var(--light);
+        opacity: 0.6;
+        transition: var(--transition);
+      }
+
+      .footer-bottom-links a:hover {
+        opacity: 1;
+        color: var(--primary-gold);
+      }
+
+      /* Animation classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .slide-in-left {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .slide-in-right {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .visible {
+        opacity: 1;
+        transform: translate(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .hero-content h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .navbar-brand {
+          font-size: 1.8rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-content h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-content p {
+          font-size: 1.1rem;
+        }
+
+        .footer-bottom-links {
+          justify-content: flex-start;
+          margin-top: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        section {
+          padding: 60px 0;
+        }
+
+        .hero-content h1 {
+          font-size: 2rem;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 250px;
+          margin-bottom: 1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .value-item {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .value-icon {
+          margin: 0 auto 1rem;
+        }
+
+        .contact-form {
+          padding: 2rem;
+        }
+
+        .form-buttons {
+          flex-direction: column;
+        }
+
+        /* Mobile navbar adjustments */
+        .navbar-collapse {
+          background: var(--light);
+          padding: 1rem;
+          border-radius: var(--radius);
+          margin-top: 1rem;
+          box-shadow: var(--shadow);
+        }
+
+        .nav-link {
+          padding: 0.8rem 1rem;
+        }
+
+        .nav-link:after {
+          display: none;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-content h1 {
+          font-size: 1.8rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .footer-contact p {
+          font-size: 0.9rem;
+        }
+
+        .hero-section {
+          min-height: 600px;
+        }
+
+        .hero-content {
+          padding: 0 1rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+
+        .property-features {
+          flex-direction: column;
+        }
+
+        .investment-point {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .point-icon {
+          margin: 0 auto 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="home-page">
+    <main>
+      <!---------Navbar------------>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <a class="navbar-brand">Jay Realtors</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="form.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!--------Hero Section ---------->
+      <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <video autoplay muted loop id="heroVideo">
+          <source src="videos/home_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+          <h1>Discover Dubai's Finest Properties</h1>
+          <p>
+            Your gateway to luxury real estate investments in the world's most
+            dynamic market
+          </p>
+          <div class="hero-buttons">
+            <a href="form.html" class="btn btn-primary">Get Consultation</a>
+            <a href="gallery.html" class="btn btn-outline">View Properties</a>
+          </div>
+        </div>
+      </section>
+
+      <!--------Intro Section--------->
+      <section class="intro-section">
+        <div class="container">
+          <h2 class="section-title">Welcome to Jay Realtors</h2>
+          <p class="section-subtitle">
+            A fresh approach to luxury real estate in Dubai's exclusive property
+            market
+          </p>
+        </div>
+      </section>
+
+      <!--------About Section--------->
+      <section id="about" class="about-section">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h2 class="section-title">Who We Are</h2>
+              <p class="section-text">
+                Jay Realtors is a new, dynamic real estate brokerage firm in
+                Dubai, founded with a vision to redefine property services
+                through innovation, transparency, and personalized attention.
+              </p>
+              <p class="section-text">
+                Though newly established, our team brings together seasoned
+                professionals with extensive knowledge of Dubai's property
+                market. We're committed to helping you find exceptional
+                investment opportunities and dream properties.
+              </p>
+              <div class="values-container">
+                <div class="value-item fade-in">
+                  <div class="value-icon">
+                    <i class="fas fa-lightbulb"></i>
+                  </div>
+                  <div class="value-content">
+                    <h4>Innovative Approach</h4>
+                    <p>Fresh perspectives on Dubai's real estate market</p>
+                  </div>
+                </div>
+                <div class="value-item fade-in">
+                  <div class="value-icon">
+                    <i class="fas fa-handshake"></i>
+                  </div>
+                  <div class="value-content">
+                    <h4>Personal Service</h4>
+                    <p>Dedicated attention to each client's unique needs</p>
+                  </div>
+                </div>
+                <div class="value-item fade-in">
+                  <div class="value-icon">
+                    <i class="fas fa-shield-alt"></i>
+                  </div>
+                  <div class="value-content">
+                    <h4>Trust & Transparency</h4>
+                    <p>Honest guidance through every step of your journey</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about-image slide-in-right">
+                <img
+                  src="images/arabpalm.jpg"
+                  alt="Dubai Palm Jumeirah"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--------Services Section--------->
+      <section id="services" class="services-section">
+        <div class="container">
+          <h2 class="section-title text-center">Our Services</h2>
+          <p class="section-subtitle text-center">
+            Comprehensive real estate solutions tailored to your needs
+          </p>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="service-card fade-in">
+                <div class="service-icon">
+                  <i class="fas fa-home"></i>
+                </div>
+                <h3>Property Investment</h3>
+                <p>
+                  Strategic guidance for lucrative real estate investments in
+                  Dubai's thriving market.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-card fade-in">
+                <div class="service-icon">
+                  <i class="fas fa-key"></i>
+                </div>
+                <h3>Buy & Sell</h3>
+                <p>
+                  End-to-end assistance in purchasing or selling residential and
+                  commercial properties.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="service-card fade-in">
+                <div class="service-icon">
+                  <i class="fas fa-building"></i>
+                </div>
+                <h3>Property Management</h3>
+                <p>
+                  Comprehensive management services to maximize your property's
+                  potential and returns.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--------Featured Properties--------->
+      <section class="properties-section">
+        <div class="container">
+          <h2 class="section-title text-center">
+            Dubai Property Opportunities
+          </h2>
+          <p class="section-subtitle text-center">
+            Explore the diverse real estate options across Dubai's most
+            sought-after locations
+          </p>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="property-card fade-in">
+                <div class="property-image">
+                  <img
+                    src="images/img2.jpg"
+                    alt="Luxury Apartment"
+                    class="img-fluid"
+                  />
+                  <div class="property-badge">Premium</div>
+                </div>
+                <div class="property-content">
+                  <h3>Palm Jumeirah</h3>
+                  <p class="property-location">
+                    <i class="fas fa-map-marker-alt"></i> World-famous island
+                    community
+                  </p>
+                  <div class="property-features">
+                    <span><i class="fas fa-luxury"></i> Luxury Villas</span>
+                    <span><i class="fas fa-water"></i> Beachfront</span>
+                    <span><i class="fas fa-star"></i> Exclusive</span>
+                  </div>
+                  <div class="property-price">
+                    <h4>From AED 8M</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="property-card fade-in">
+                <div class="property-image">
+                  <img
+                    src="images/img3.jpg"
+                    alt="Downtown Apartment"
+                    class="img-fluid"
+                  />
+                  <div class="property-badge">Luxury</div>
+                </div>
+                <div class="property-content">
+                  <h3>Downtown Dubai</h3>
+                  <p class="property-location">
+                    <i class="fas fa-map-marker-alt"></i> City center living
+                  </p>
+                  <div class="property-features">
+                    <span><i class="fas fa-building"></i> High-Rise</span>
+                    <span><i class="fas fa-shopping-bag"></i> Retail</span>
+                    <span><i class="fas fa-landmark"></i> Cultural Hub</span>
+                  </div>
+                  <div class="property-price">
+                    <h4>From AED 1.5M</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="property-card fade-in">
+                <div class="property-image">
+                  <img
+                    src="images/img4.jpg"
+                    alt="Business Bay Office"
+                    class="img-fluid"
+                  />
+                  <div class="property-badge">Commercial</div>
+                </div>
+                <div class="property-content">
+                  <h3>Business Bay</h3>
+                  <p class="property-location">
+                    <i class="fas fa-map-marker-alt"></i> Business district
+                  </p>
+                  <div class="property-features">
+                    <span><i class="fas fa-briefcase"></i> Office Space</span>
+                    <span><i class="fas fa-water"></i> Canal Views</span>
+                    <span><i class="fas fa-city"></i> Central Location</span>
+                  </div>
+                  <div class="property-price">
+                    <h4>From AED 900K</h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-5">
+            <a href="gallery.html" class="btn btn-outline"
+              >Explore More Areas</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!--------Investment Section--------->
+      <section class="investment-section">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h2 class="section-title">Why Invest in Dubai?</h2>
+              <div class="investment-point slide-in-left">
+                <div class="point-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="point-content">
+                  <h4>High ROI Potential</h4>
+                  <p>
+                    Dubai offers some of the highest rental yields globally,
+                    averaging 5-8% annually.
+                  </p>
+                </div>
+              </div>
+              <div class="investment-point slide-in-left">
+                <div class="point-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="point-content">
+                  <h4>Tax-Free Environment</h4>
+                  <p>
+                    No property, income, or capital gains tax for foreign
+                    investors.
+                  </p>
+                </div>
+              </div>
+              <div class="investment-point slide-in-left">
+                <div class="point-icon">
+                  <i class="fas fa-passport"></i>
+                </div>
+                <div class="point-content">
+                  <h4>Golden Visa Program</h4>
+                  <p>
+                    Property investment can qualify you for long-term UAE
+                    residency.
+                  </p>
+                </div>
+              </div>
+              <div class="investment-point slide-in-left">
+                <div class="point-icon">
+                  <i class="fas fa-globe"></i>
+                </div>
+                <div class="point-content">
+                  <h4>Strategic Location</h4>
+                  <p>
+                    Dubai serves as a global hub connecting East and West
+                    markets.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="investment-image slide-in-right">
+                <img
+                  src="images/img5.jpg"
+                  alt="Dubai Investment"
+                  class="img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--------Testimonials Section--------->
+      <section class="testimonials-section">
+        <div class="container">
+          <h2 class="section-title text-center">Our Commitment</h2>
+          <p class="section-subtitle text-center">
+            While we're new to the market, our principles are time-tested
+          </p>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="commitment-card fade-in">
+                <div class="commitment-icon">
+                  <i class="fas fa-medal"></i>
+                </div>
+                <h3>Quality Over Quantity</h3>
+                <p>
+                  We focus on fewer clients to provide exceptional, personalized
+                  service that larger firms can't match.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="commitment-card fade-in">
+                <div class="commitment-icon">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <h3>Always Available</h3>
+                <p>
+                  As a new company, we're hungry to prove ourselves and
+                  available whenever you need us.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="commitment-card fade-in">
+                <div class="commitment-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <h3>Passionate Service</h3>
+                <p>
+                  Our fresh perspective means we approach each project with
+                  enthusiasm and dedication.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--------Footer--------->
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="footer-info">
+                <h3>Jay Realtors</h3>
+                <p>
+                  A fresh perspective on Dubai real estate. We're committed to
+                  helping you find exceptional properties and investment
+                  opportunities in this dynamic market.
+                </p>
+                <div class="social-links">
+                  <a href="#"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#"><i class="fab fa-twitter"></i></a>
+                  <a href="#"><i class="fab fa-instagram"></i></a>
+                  <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>
+                  <i class="fas fa-map-marker-alt"></i> Business Bay, Dubai, UAE
+                </p>
+                <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+                <p><i class="fas fa-envelope"></i> info@jayrealtors.ae</p>
+                <p><i class="fas fa-clock"></i> Mon-Sat: 9AM - 8PM</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="#about">About Us</a></li>
+                  <li><a href="#services">Services</a></li>
+                  <li><a href="gallery.html">Property Areas</a></li>
+                  <li><a href="form.html">Contact</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <div class="row">
+              <div class="col-md-6">
+                <p>&copy; 2025 Jay Realtors. All Rights Reserved.</p>
+              </div>
+              <div class="col-md-6">
+                <div class="footer-bottom-links">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">Terms & Conditions</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Navbar scroll effect
+        $(window).scroll(function () {
+          if ($(window).scrollTop() > 50) {
+            $(".navbar").addClass("scrolled");
+          } else {
+            $(".navbar").removeClass("scrolled");
+          }
+        });
+
+        // Smooth scrolling for anchor links
+        $('a[href^="#"]').on("click", function (e) {
+          e.preventDefault();
+          var target = this.hash;
+          var $target = $(target);
+          $("html, body").animate(
+            {
+              scrollTop: $target.offset().top - 80,
+            },
+            800,
+            "swing",
+            function () {
+              window.location.hash = target;
+            }
+          );
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+          $(".fade-in, .slide-in-left, .slide-in-right").each(function () {
+            var position = $(this).offset().top;
+            var scroll = $(window).scrollTop();
+            var windowHeight = $(window).height();
+
+            if (scroll + windowHeight - 100 > position) {
+              $(this).addClass("visible");
+            }
+          });
+        }
+
+        // Run on load and scroll
+        animateOnScroll();
+        $(window).scroll(animateOnScroll);
+
+        // Close mobile menu when clicking a link
+        $(".navbar-nav a").on("click", function () {
+          $(".navbar-collapse").collapse("hide");
+        });
+      });
+    </script>
+  </body>
+</html>

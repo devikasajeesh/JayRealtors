@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Jay Realtors - Premium Real Estate Services"
+    />
+    <meta name="author" content="Jay Realtors" />
+    <link rel="icon" type="image/x-icon" href="images/logobkd.jpg" />
+    <title>Contact Us | Jay Realtors</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;400;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/form.css" rel="stylesheet" />
+  </head>
+
+  <body class="form-page">
+    <!---------Navbar------------>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Jay Realtors</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="form.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="form-container">
+      <div class="form-overlay"></div>
+      <div class="form-content">
+        <div class="form-header">
+          <h1>Begin Your Dubai Property Journey</h1>
+          <p>Share your interests and our experts will contact you shortly</p>
+        </div>
+
+        <form id="visitorForm" class="elegant-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                placeholder="Enter your first name"
+              />
+              <span id="errorFirstName" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                placeholder="Enter your last name"
+              />
+              <span id="errorLastName" class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email address"
+              />
+              <span id="errorEmail" class="error-message"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="mobile">Mobile Number</label>
+              <input
+                type="text"
+                id="mobile"
+                placeholder="Enter your mobile number"
+              />
+              <span id="errorMobile" class="error-message"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country</label>
+            <select id="country">
+              <option value="">Select your country</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">I'm interested in</label>
+            <select id="interest">
+              <option value="">Please select an option</option>
+              <option value="buying">Buying a property</option>
+              <option value="selling">Selling a property</option>
+              <option value="investment">Investment opportunities</option>
+              <option value="consultation">Professional consultation</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message (Optional)</label>
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Tell us about your specific requirements or questions"
+            ></textarea>
+          </div>
+
+          <div class="form-buttons">
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="validateForm()"
+            >
+              <i class="fas fa-paper-plane"></i> Submit Request
+            </button>
+            <button type="reset" class="btn btn-secondary">
+              <i class="fas fa-redo"></i> Reset Form
+            </button>
+          </div>
+
+          <div id="loadingMessage" class="loading-message">
+            <i class="fas fa-spinner fa-spin"></i> Please wait while we save
+            your information...
+          </div>
+        </form>
+      </div>
+
+      <div class="form-sidebar">
+        <div class="sidebar-content">
+          <h2>Why Contact Us?</h2>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-headset"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Personalized Consultation</h3>
+              <p>Get expert advice tailored to your specific needs and goals</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Exclusive Property Access</h3>
+              <p>Gain access to premium listings before they hit the market</p>
+            </div>
+          </div>
+
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="benefit-text">
+              <h3>Market Insights</h3>
+              <p>
+                Receive current market analysis and investment opportunities
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <h3>Direct Contact</h3>
+            <p><i class="fas fa-phone"></i> +971 4 123 4567</p>
+            <p><i class="fas fa-envelope"></i> info@jayrealtors.ae</p>
+            <p>
+              <i class="fas fa-map-marker-alt"></i> Business Bay, Dubai, UAE
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="form-footer">
+      <p>
+        &copy; 2025 Jay Realtors. All Rights Reserved. |
+        <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+      </p>
+    </footer>
+
+    <script>
+      // Country dropdown population
+      document.addEventListener("DOMContentLoaded", function () {
+        const countries = [
+          "Afghanistan",
+          "Albania",
+          "Algeria",
+          "Andorra",
+          "Angola",
+          "Argentina",
+          "Armenia",
+          "Australia",
+          "Austria",
+          "Azerbaijan",
+          "Bahamas",
+          "Bahrain",
+          "Bangladesh",
+          "Barbados",
+          "Belarus",
+          "Belgium",
+          "Belize",
+          "Benin",
+          "Bhutan",
+          "Bolivia",
+          "Bosnia and Herzegovina",
+          "Botswana",
+          "Brazil",
+          "Brunei",
+          "Bulgaria",
+          "Burkina Faso",
+          "Burundi",
+          "Cabo Verde",
+          "Cambodia",
+          "Cameroon",
+          "Canada",
+          "Central African Republic",
+          "Chad",
+          "Chile",
+          "China",
+          "Colombia",
+          "Comoros",
+          "Congo",
+          "Costa Rica",
+          "Croatia",
+          "Cuba",
+          "Cyprus",
+          "Czech Republic",
+          "Denmark",
+          "Djibouti",
+          "Dominica",
+          "Dominican Republic",
+          "Ecuador",
+          "Egypt",
+          "El Salvador",
+          "Equatorial Guinea",
+          "Eritrea",
+          "Estonia",
+          "Eswatini",
+          "Ethiopia",
+          "Fiji",
+          "Finland",
+          "France",
+          "Gabon",
+          "Gambia",
+          "Georgia",
+          "Germany",
+          "Ghana",
+          "Greece",
+          "Grenada",
+          "Guatemala",
+          "Guinea",
+          "Guyana",
+          "Haiti",
+          "Honduras",
+          "Hungary",
+          "Iceland",
+          "India",
+          "Indonesia",
+          "Iran",
+          "Iraq",
+          "Ireland",
+          "Israel",
+          "Italy",
+          "Jamaica",
+          "Japan",
+          "Jordan",
+          "Kazakhstan",
+          "Kenya",
+          "Kiribati",
+          "Kuwait",
+          "Kyrgyzstan",
+          "Laos",
+          "Latvia",
+          "Lebanon",
+          "Lesotho",
+          "Liberia",
+          "Libya",
+          "Liechtenstein",
+          "Lithuania",
+          "Luxembourg",
+          "Madagascar",
+          "Malawi",
+          "Malaysia",
+          "Maldives",
+          "Mali",
+          "Malta",
+          "Marshall Islands",
+          "Mauritania",
+          "Mauritius",
+          "Mexico",
+          "Micronesia",
+          "Moldova",
+          "Monaco",
+          "Mongolia",
+          "Montenegro",
+          "Morocco",
+          "Mozambique",
+          "Myanmar",
+          "Namibia",
+          "Nauru",
+          "Nepal",
+          "Netherlands",
+          "New Zealand",
+          "Nicaragua",
+          "Niger",
+          "Nigeria",
+          "North Korea",
+          "North Macedonia",
+          "Norway",
+          "Oman",
+          "Pakistan",
+          "Palau",
+          "Panama",
+          "Papua New Guinea",
+          "Paraguay",
+          "Peru",
+          "Philippines",
+          "Poland",
+          "Portugal",
+          "Qatar",
+          "Romania",
+          "Russia",
+          "Rwanda",
+          "Saint Kitts and Nevis",
+          "Saint Lucia",
+          "Saint Vincent and the Grenadines",
+          "Samoa",
+          "San Marino",
+          "Saudi Arabia",
+          "Senegal",
+          "Serbia",
+          "Seychelles",
+          "Sierra Leone",
+          "Singapore",
+          "Slovakia",
+          "Slovenia",
+          "Solomon Islands",
+          "Somalia",
+          "South Africa",
+          "South Korea",
+          "South Sudan",
+          "Spain",
+          "Sri Lanka",
+          "Sudan",
+          "Suriname",
+          "Sweden",
+          "Switzerland",
+          "Syria",
+          "Taiwan",
+          "Tajikistan",
+          "Tanzania",
+          "Thailand",
+          "Togo",
+          "Tonga",
+          "Trinidad and Tobago",
+          "Tunisia",
+          "Turkey",
+          "Turkmenistan",
+          "Tuvalu",
+          "Uganda",
+          "Ukraine",
+          "United Arab Emirates",
+          "United Kingdom",
+          "United States",
+          "Uruguay",
+          "Uzbekistan",
+          "Vanuatu",
+          "Vatican City",
+          "Venezuela",
+          "Vietnam",
+          "Yemen",
+          "Zambia",
+          "Zimbabwe",
+        ];
+
+        const countrySelect = document.getElementById("country");
+
+        // Add countries
+        countries.forEach((country) => {
+          const option = document.createElement("option");
+          option.value = country;
+          option.textContent = country;
+          countrySelect.appendChild(option);
+        });
+      });
+
+      function validateForm() {
+        const firstName = document.getElementById("firstName").value.trim();
+        const lastName = document.getElementById("lastName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const country = document.getElementById("country").value;
+        const interest = document.getElementById("interest").value;
+
+        // Reset error messages
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => (el.textContent = ""));
+
+        let isValid = true;
+
+        // Simple validations
+        if (!firstName) {
+          document.getElementById("errorFirstName").textContent =
+            "First name is required";
+          isValid = false;
+        }
+
+        if (!lastName) {
+          document.getElementById("errorLastName").textContent =
+            "Last name is required";
+          isValid = false;
+        }
+
+        if (!email) {
+          document.getElementById("errorEmail").textContent =
+            "Email is required";
+          isValid = false;
+        } else {
+          // Basic email regex
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(email)) {
+            document.getElementById("errorEmail").textContent =
+              "Enter a valid email address";
+            isValid = false;
+          }
+        }
+
+        if (!mobile) {
+          document.getElementById("errorMobile").textContent =
+            "Mobile number is required";
+          isValid = false;
+        } else {
+          // Mobile number regex (for basic validation)
+          const mobileRegex = /^[0-9]{7,15}$/;
+          if (!mobileRegex.test(mobile)) {
+            document.getElementById("errorMobile").textContent =
+              "Enter a valid mobile number";
+            isValid = false;
+          }
+        }
+
+        if (!country) {
+          alert("Please select your country");
+          isValid = false;
+        }
+
+        if (!interest) {
+          alert("Please let us know what you're interested in");
+          isValid = false;
+        }
+
+        if (!isValid) {
+          return;
+        }
+
+        // Prepare data
+        const message = document.getElementById("message").value.trim();
+        const data = {
+          firstName,
+          lastName,
+          email,
+          mobile,
+          country,
+          interest,
+          message,
+        };
+
+        const loadingMessage = document.getElementById("loadingMessage");
+        loadingMessage.style.display = "flex"; // Show loading
+
+        fetch("https://visitor-form-api.onrender.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            alert(res.message);
+            loadingMessage.style.display = "none"; // Hide loading
+            resetForm();
+          })
+          .catch((err) => {
+            console.error("Error:", err);
+            alert("Something went wrong. Please try again later.");
+            loadingMessage.style.display = "none"; // Hide loading
+          });
+      }
+
+      function resetForm() {
+        document.getElementById("firstName").value = "";
+        document.getElementById("lastName").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("mobile").value = "";
+        document.getElementById("country").value = "";
+        document.getElementById("interest").value = "";
+        document.getElementById("message").value = "";
+
+        // Clear error messages
+        document
+          .querySelectorAll(".error-message")
+          .forEach((el) => (el.textContent = ""));
+      }
+    </script>
+  </body>
+</html>

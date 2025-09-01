@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/mainstyles.css" />
+    <title>Masonry Image Gallery</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f9f9f9;
+      }
+
+      .masonry-gallery {
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 0 20px;
+      }
+
+      .masonry-grid {
+        column-count: 3;
+        column-gap: 16px;
+      }
+
+      .masonry-grid img {
+        width: 100%;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .masonry-grid img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      @media (max-width: 992px) {
+        .masonry-grid {
+          column-count: 2;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .masonry-grid {
+          column-count: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="masonry-gallery">
+      <div class="masonry-grid">
+        <img src="images/arabpalm.jpg" alt="Luxury Villa" />
+        <img src="images/citymetro.jpg" alt="Bedroom" />
+        <img src="images/dubainight.jpg" alt="Kitchen" />
+        <img src="images/flag.jpg" alt="Living Room" />
+        <img src="images/giantwheel.jpg" alt="Pool Area" />
+        <img src="images/metro.jpg" alt="Terrace View" />
+        <img src="images/pathway.jpg" alt="Terrace View" />
+        <img src="images/nightview.jpg" alt="Terrace View" />
+        <img src="images/nighttower.jpg" alt="Terrace View" />
+        <img src="images/mrngbeach.jpg" alt="Terrace View" />
+        <img src="images/mosquewater.jpg" alt="Terrace View" />
+      </div>
+    </section>
+    <!-----------------Gallery--------------->
+    <section id="gallery" class="content-section">
+      <div class="property-gallery">
+        <div class="main-image">
+          <img
+            src="https://media.istockphoto.com/id/1154761064/photo/the-palm-island-panorama-with-dubai-marina-in-the-background-aerial.jpg?s=2048x2048&w=is&k=20&c=tRB5G9aOdpUqdWxbidYWOdqNUKtsCvmq0LRYrAqp_Ng="
+            alt="Luxury villa exterior"
+            id="gallery-main"
+            class="gallery-main-image"
+          />
+          <div class="image-caption">Palm Jumeirah</div>
+        </div>
+        <div class="thumbnail-row">
+          <div class="thumbnail-container">
+            <img
+              src="images/img2.jpg"
+              data-full="images/img2.jpg"
+              alt="Living room"
+              class="thumbnail active"
+            />
+            <div class="thumbnail-label">Living Area</div>
+          </div>
+          <div class="thumbnail-container">
+            <img
+              src="images/img1.jpg"
+              data-full="images/img1.jpg"
+              alt="Master bedroom"
+              class="thumbnail"
+            />
+            <div class="thumbnail-label">Master Suite</div>
+          </div>
+          <div class="thumbnail-container">
+            <img
+              src="images/img3.jpg"
+              data-full="images/img3.jpg"
+              alt="Elegant Kitchen"
+              class="thumbnail"
+            />
+            <div class="thumbnail-label">Elegant Kitchen</div>
+          </div>
+          <div class="thumbnail-container">
+            <img
+              src="images/img4.jpg"
+              data-full="images/img4.jpg"
+              alt="Living Area"
+              class="thumbnail"
+            />
+            <div class="thumbnail-label">Living Area</div>
+          </div>
+          <div class="thumbnail-container">
+            <img
+              src="images/img5.jpg"
+              data-full="images/img5.jpg"
+              alt="Master bedroom"
+              class="thumbnail"
+            />
+            <div class="thumbnail-label">Master Suite</div>
+          </div>
+          <div class="thumbnail-container">
+            <img
+              src="images/img6.jpg"
+              data-full="images/img6.jpg"
+              alt="Master bedroom"
+              class="thumbnail"
+            />
+            <div class="thumbnail-label">Master Suite</div>
+          </div>
+          <div class="thumbnail-container">
+            <img
+              src="images/img7.jpg"
+              data-full="images/img7.jpg"
+              alt="Elegant Kitchen"
+              class="thumbnail"
+            />
+            <div class="thumbnail-label">Elegant Kitchen</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      // Gallery Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const thumbnails = document.querySelectorAll(".thumbnail");
+        const mainImage = document.getElementById("gallery-main");
+        const imageCaption = document.querySelector(".image-caption");
+
+        // Caption texts corresponding to each image
+        const captions = [
+          "Spacious Living Area with Panoramic Views",
+          "Luxurious Master Bedroom Suite",
+          "Infinity Pool Overlooking Dubai Marina",
+        ];
+
+        thumbnails.forEach((thumb, index) => {
+          thumb.addEventListener("click", function () {
+            // Update main image
+            const fullSizeUrl = this.getAttribute("data-full");
+            mainImage.src = fullSizeUrl;
+
+            // Update active state
+            thumbnails.forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+
+            // Update caption
+            imageCaption.textContent = captions[index];
+
+            // Add fade effect
+            mainImage.style.opacity = 0;
+            setTimeout(() => {
+              mainImage.style.opacity = 1;
+            }, 300);
+          });
+        });
+
+        let currentIndex = 0;
+        function rotateImages() {
+          currentIndex = (currentIndex + 1) % thumbnails.length;
+          thumbnails[currentIndex].click();
+        }
+
+        setInterval(rotateImages, 5000);
+      });
+    </script>
+  </body>
+</html>
